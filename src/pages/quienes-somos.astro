@@ -1,0 +1,116 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: '¿Quiénes Somos?',
+  description: 'Conoce la historia, misión y visión de la Schola Cantorum de México. Más de 35 años formando voces que inspiran.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Nuestra Historia"
+    image={{ src: 'https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=2070&q=80', alt: 'Música clásica' }}
+  >
+    <Fragment slot="title">
+      Schola Cantorum<br class="hidden xl:inline" />
+      <span class="text-accent dark:text-white"> de México</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Más de tres décadas dedicadas a descubrir y formar el talento vocal de niños y jóvenes
+      en el área metropolitana de la Ciudad de México.
+    </Fragment>
+  </Hero>
+
+  <Content
+    isReversed
+    tagline="Nuestra Misión"
+    title="Transformar vidas a través de la música coral"
+    items={[
+      {
+        title: 'Descubrir el talento',
+        description: 'Identificar y desarrollar las aptitudes vocales de niños con potencial artístico excepcional en comunidades del área metropolitana.',
+      },
+      {
+        title: 'Formar con excelencia',
+        description: 'Brindar una educación musical de calidad internacional, accesible para todos los niños sin importar su condición socioeconómica.',
+      },
+      {
+        title: 'Crear oportunidades',
+        description: 'Abrir puertas al mundo del arte profesional mediante presentaciones, giras y colaboraciones con instituciones culturales de primer nivel.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Orquesta sinfónica',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        «Nuestra riqueza es el arte; nuestra esperanza, la juventud»
+      </h3>
+      Bajo la dirección del Maestro Alfredo Mendoza, la Schola Cantorum de México ha construido un legado
+      de excelencia artística y compromiso social que ha transformado la vida de cientos de niños y sus familias.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent
+    tagline="Nuestra Visión"
+    title="Un México donde cada niño con talento tiene una oportunidad"
+    items={[
+      {
+        title: 'Impacto social',
+        description: 'Utilizamos la música como herramienta de transformación social, disciplina y desarrollo integral del ser humano.',
+      },
+      {
+        title: 'Reconocimiento internacional',
+        description: 'Nuestros coros han sido invitados a festivales y escenarios en más de 15 países.',
+      },
+      {
+        title: 'Alianzas estratégicas',
+        description: 'Colaboraciones con la Orquesta Sinfónica Nacional, el Palacio de Bellas Artes y la Fundación Cultural Sebastián.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Teatro y cultura',
+    }}
+  >
+    <Fragment slot="content">
+      Aspiramos a ser la institución líder en formación coral infantil y juvenil de América Latina.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Stats
+    stats={[
+      { title: 'Años de trayectoria', amount: '35+' },
+      { title: 'Alumnos formados', amount: '2,000+' },
+      { title: 'Conciertos', amount: '500+' },
+      { title: 'Países visitados', amount: '15+' },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: '¡Únete a nuestra familia!', href: '/inscripciones', icon: 'tabler:music' },
+    ]}
+  >
+    <Fragment slot="title">Sé parte de la Schola Cantorum</Fragment>
+    <Fragment slot="subtitle">
+      Descubre el talento de tu hijo y dale la oportunidad de ser parte de una comunidad musical de excelencia.
+    </Fragment>
+  </CallToAction>
+</Layout>

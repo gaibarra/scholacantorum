@@ -1,0 +1,103 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Proyectos',
+  description: 'Conoce los proyectos de la Schola Cantorum de México: conciertos, giras internacionales, grabaciones y colaboraciones artísticas.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Nuestros Proyectos">
+    <Fragment slot="title">
+      Arte que<br class="hidden xl:inline" />
+      <span class="text-accent dark:text-white"> trasciende fronteras</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Descubre los proyectos que han llevado a la Schola Cantorum de México
+      a los escenarios más importantes del país y del mundo.
+    </Fragment>
+  </Hero>
+
+  <Content
+    isReversed
+    tagline="Programa Insignia"
+    title="Viaja con la Música"
+    items={[
+      { title: 'Giras internacionales', description: 'Nuestros coros han visitado más de 15 países, llevando la música coral mexicana a festivales y escenarios internacionales.' },
+      { title: 'Intercambio cultural', description: 'Los niños viven experiencias transformadoras al conocer otras culturas a través de la música y la convivencia.' },
+      { title: 'Crecimiento personal', description: 'Cada gira es una oportunidad de aprendizaje, autonomía y desarrollo integral para nuestros alumnos.' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1436491865332-7a61a109db05?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Viajes musicales',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Descubre el mundo a través de la música</h3>
+      Nuestro programa más emblemático combina la formación musical con experiencias de viaje que transforman la vida de nuestros alumnos.
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent
+    tagline="Escenarios de Primer Nivel"
+    title="Conciertos y Presentaciones"
+    items={[
+      { title: 'Palacio de Bellas Artes', description: 'Participación en temporadas de la Orquesta Sinfónica Nacional en el recinto cultural más importante de México.' },
+      { title: 'Fundación Cultural Sebastián', description: 'Conciertos exclusivos en el auditorio de la fundación del maestro Sebastián.' },
+      { title: 'Festivales nacionales', description: 'Presencia en los principales festivales de música coral del país.' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Concierto sinfónico',
+    }}
+  >
+    <Fragment slot="content">
+      Nuestros alumnos tienen la oportunidad de pisar los escenarios más prestigiosos desde temprana edad.
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    isAfterContent
+    tagline="Legado Musical"
+    title="Discografía y Grabaciones"
+    items={[
+      { title: 'Grabaciones profesionales', description: 'Discos de estudio con repertorio clásico, sacro y contemporáneo.' },
+      { title: 'Colaboraciones artísticas', description: 'Participaciones especiales con artistas y orquestas de renombre nacional e internacional.' },
+      { title: 'Patrimonio sonoro', description: 'Nuestras grabaciones son testimonio del talento y la dedicación de generaciones de alumnos.' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Coro cantando',
+    }}
+  >
+    <Fragment slot="content">
+      Un catálogo de grabaciones que refleja la calidad artística de la Schola Cantorum de México.
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: 'Sé parte de nuestros proyectos', href: '/inscripciones', icon: 'tabler:music' },
+    ]}
+  >
+    <Fragment slot="title">Tu hijo puede ser protagonista</Fragment>
+    <Fragment slot="subtitle">
+      Inscribe a tu hijo y dale la oportunidad de participar en conciertos, giras y grabaciones con la Schola Cantorum de México.
+    </Fragment>
+  </CallToAction>
+</Layout>

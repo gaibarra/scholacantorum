@@ -1,0 +1,95 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Inscripciones',
+  description:
+    'Inscripciones abiertas para niños y jóvenes con talento musical del área metropolitana de la Ciudad de México.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Inscripciones abiertas">
+    <Fragment slot="title">
+      ¡Inscribe a tu hijo en la<br class="hidden xl:inline" />
+      <span class="text-accent dark:text-white"> Schola Cantorum de México!</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Abrimos nuestras puertas a niños con talento musical del área metropolitana de la Ciudad de México.
+    </Fragment>
+  </Hero>
+
+  <section class="py-14">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 class="text-3xl font-bold dark:text-white">¿Cómo ingresar a la Schola Cantorum de México?</h2>
+      <div class="mt-8 space-y-5 text-muted dark:text-slate-300">
+        <p>
+          <strong>1.</strong> Si te gusta cantar, te invitamos primero a asistir a una o varias clases del Coro de Niños o
+          del Coro de Cámara en nuestro centro de estudio. Confirma tu asistencia por WhatsApp al
+          <strong> 55 7195 5571</strong>.
+        </p>
+        <ul class="ml-5 list-disc space-y-2">
+          <li><strong>Coro de Niños (9-13 años):</strong> Lunes y miércoles, 5:00-7:00 p.m.</li>
+          <li><strong>Coro de Cámara (14-30 años):</strong> Lunes y miércoles, 7:00-8:30 p.m.</li>
+        </ul>
+        <p>
+          <strong>2.</strong> El siguiente paso es presentar una sencilla prueba de voz, repitiendo una breve melodía que
+          se te cante o toque.
+        </p>
+        <p>
+          <strong>3.</strong> Si tienes éxito en la prueba, podrás inscribirte al Coro de Niños o al Coro de Cámara si ya
+          tienes conocimientos de música. Si no tienes antecedentes, podrás ingresar a un grupo inicial:
+        </p>
+        <ul class="ml-5 list-disc space-y-2">
+          <li><strong>Grupo infantil de iniciación (6-10 años):</strong> Martes, 5:00-6:30 p.m.</li>
+          <li><strong>Grupo juvenil preparatorio (14-20 años):</strong> Martes, 6:30-8:00 p.m.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-slate-50 dark:bg-slate-900/40">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 grid gap-6 lg:grid-cols-2">
+      <article class="rounded-xl border border-slate-200 bg-white p-7 dark:border-slate-700 dark:bg-slate-800">
+        <h3 class="text-2xl font-bold dark:text-white">Próximo período de admisión</h3>
+        <p class="mt-4 text-muted dark:text-slate-300">
+          <strong>Clases abiertas y pruebas de voz:</strong> Lunes 16 y miércoles 18 de marzo de 2026.
+        </p>
+        <ul class="mt-3 space-y-2 text-muted dark:text-slate-300">
+          <li><strong>Coro de Niños y Grupo infantil de iniciación:</strong> 6:00 p.m.</li>
+          <li><strong>Coro de Cámara y Grupo juvenil preparatorio:</strong> 7:30 p.m.</li>
+        </ul>
+      </article>
+
+      <article class="rounded-xl border border-slate-200 bg-white p-7 dark:border-slate-700 dark:bg-slate-800">
+        <h3 class="text-2xl font-bold dark:text-white">Datos de preinscripción</h3>
+        <p class="mt-4 text-muted dark:text-slate-300">Comparte por WhatsApp:</p>
+        <ul class="mt-3 ml-5 list-disc space-y-2 text-muted dark:text-slate-300">
+          <li>Nombre completo del (de la) aspirante</li>
+          <li>Edad y fecha de nacimiento</li>
+          <li>Programa de interés</li>
+          <li>Nombre del padre/tutor (si es menor de edad)</li>
+          <li>Correo electrónico y teléfono</li>
+          <li>Alcaldía / municipio</li>
+          <li>Experiencia musical previa y medio por el cual se enteró</li>
+        </ul>
+        <p class="mt-4 text-sm text-muted dark:text-slate-400">Te contactaremos en un máximo de 48 horas hábiles.</p>
+      </article>
+    </div>
+  </section>
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: 'Llenar formulario', href: '/contact', icon: 'tabler:clipboard-text' },
+      { text: 'WhatsApp 55 7195 5571', href: 'https://wa.me/525571955571', icon: 'tabler:brand-whatsapp' },
+    ]}
+  >
+    <Fragment slot="title">¡Inscríbete!</Fragment>
+    <Fragment slot="subtitle">
+      Completa tu preinscripción y te contactaremos para agendar audición.
+    </Fragment>
+  </CallToAction>
+</Layout>
+

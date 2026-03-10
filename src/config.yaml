@@ -1,0 +1,70 @@
+site:
+  name: Schola Cantorum de México
+  site: 'https://scholacantorum.online'
+  base: '/'
+  trailingSlash: false
+
+# Default SEO metadata
+metadata:
+  title:
+    default: Schola Cantorum de México
+    template: '%s — Schola Cantorum de México'
+  description: 'Formación musical coral de excelencia para niños con talento en el área metropolitana de la Ciudad de México. ¡Inscribe a tu hijo y descubre su potencial artístico!'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Schola Cantorum de México
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: '@scholacantorumx'
+    site: '@scholacantorumx'
+    cardType: summary_large_image
+
+i18n:
+  language: es
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 6
+
+    post:
+      isEnabled: true
+      permalink: '/%slug%'
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'noticias'
+      robots:
+        index: true
+
+    category:
+      isEnabled: true
+      pathname: 'categoria'
+      robots:
+        index: true
+
+    tag:
+      isEnabled: true
+      pathname: 'etiqueta'
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null
+
+ui:
+  theme: 'dark:only'

@@ -1,0 +1,55 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/playfair-display';
+---
+
+<style is:inline>
+  :root {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Playfair Display Variable';
+    --aw-font-heading: 'Playfair Display Variable';
+
+    --aw-color-primary: rgb(212 175 55);
+    --aw-color-secondary: rgb(180 148 45);
+    --aw-color-accent: rgb(235 200 80);
+
+    --aw-color-text-heading: rgb(26 35 50);
+    --aw-color-text-default: rgb(16 16 16);
+    --aw-color-text-muted: rgb(16 16 16 / 66%);
+    --aw-color-bg-page: rgb(255 255 255);
+
+    --aw-color-bg-page-dark: rgb(8 15 30);
+
+    /* SCM custom tokens */
+    --scm-gold: rgb(212 175 55);
+    --scm-gold-light: rgb(235 200 80);
+    --scm-gold-glow: rgb(212 175 55 / 40%);
+    --scm-navy-dark: rgb(8 15 30);
+    --scm-navy-deep: rgb(12 20 42);
+    --scm-navy-card: rgb(18 28 55 / 60%);
+
+    ::selection {
+      background-color: rgb(212 175 55 / 30%);
+    }
+  }
+
+  .dark {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Playfair Display Variable';
+    --aw-font-heading: 'Playfair Display Variable';
+
+    --aw-color-primary: rgb(212 175 55);
+    --aw-color-secondary: rgb(235 200 80);
+    --aw-color-accent: rgb(245 225 130);
+
+    --aw-color-text-heading: rgb(248 243 235);
+    --aw-color-text-default: rgb(220 225 235);
+    --aw-color-text-muted: rgb(220 225 235 / 66%);
+    --aw-color-bg-page: rgb(8 15 30);
+
+    ::selection {
+      background-color: rgb(212 175 55 / 40%);
+      color: snow;
+    }
+  }
+</style>

@@ -1,0 +1,338 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Galería Audiovisual',
+  description: 'Mira y escucha a la Schola Cantorum de México en acción. Videos de conciertos, grabaciones, giras internacionales y más.',
+};
+
+/*
+  ═══════════════════════════════════════════════════════════════
+  INSTRUCCIONES PARA AGREGAR MATERIAL REAL:
+
+  VIDEOS:
+  - Opción A (YouTube): Cambia embedUrl al embed de tu video real
+      embedUrl: 'https://www.youtube.com/embed/TU_VIDEO_ID'
+  - Opción B (Local): Coloca tu .mp4 en public/media/videos/
+      y cambia localSrc: '/media/videos/tu-video.mp4'
+      (quita embedUrl si usas localSrc)
+
+  AUDIO:
+  - Coloca tus .mp3 en: public/media/audio/
+  - Actualiza el campo src abajo con la ruta real
+      src: '/media/audio/tu-cancion.mp3'
+
+  FOTOS:
+  - Opción A (optimizadas): Coloca en src/assets/images/galeria/
+  - Opción B (estáticas): Coloca en public/media/fotos/
+      y referencia con src: '/media/fotos/tu-foto.jpg'
+  ═══════════════════════════════════════════════════════════════
+*/
+
+// ── VIDEOS ──────────────────────────────────────────────────
+const videos = [
+  {
+    title: 'Video Oficial SCM 2015',
+    description: 'Video oficial de la Schola Cantorum de México presentando lo mejor de nuestra trayectoria artística.',
+    // Opción A: embed de YouTube (descomenta y pon tu ID real)
+    embedUrl: 'https://www.youtube.com/embed/vjIA7ZE1ZYc',
+    // Opción B: video local (coloca tu .mp4 en public/media/videos/)
+    // localSrc: '/media/videos/video-oficial-scm.mp4',
+    thumbnail: '/media/fotos/thumb-video-oficial.jpg',
+    category: 'Institucional',
+  },
+  {
+    title: 'Concierto en el Palacio de Bellas Artes',
+    description: 'Participación en la temporada de la Orquesta Sinfónica Nacional. 3ª Sinfonía de Gustav Mahler.',
+    embedUrl: 'https://www.youtube.com/embed/RWkEG9uZqkk?feature=share',
+    // localSrc: '/media/videos/concierto-bellas-artes.mp4',
+    thumbnail: '/media/fotos/thumb-bellas-artes.jpg',
+    category: 'Conciertos',
+  },
+  {
+    title: 'Gira Europa 2025 — Highlights',
+    description: 'Lo mejor de nuestra gira por España, Francia e Italia con el programa Viaja con la Música.',
+    embedUrl: 'https://www.youtube.com/embed/TU_VIDEO_ID_3',
+    // localSrc: '/media/videos/gira-europa-2025.mp4',
+    thumbnail: '/media/fotos/thumb-gira-europa.jpg',
+    category: 'Giras',
+  },
+  {
+    title: 'Fundación Cultural Sebastián',
+    description: 'Concierto acompañados al piano por la Mtra. Carmen Betancourt, dirigidos por el Mtro. Alfredo Mendoza.',
+    embedUrl: 'https://www.youtube.com/embed/TU_VIDEO_ID_4',
+    // localSrc: '/media/videos/fundacion-sebastian.mp4',
+    thumbnail: '/media/fotos/thumb-fundacion-sebastian.jpg',
+    category: 'Conciertos',
+  },
+  {
+    title: 'Audiciones — ¿Qué esperar?',
+    description: 'Conoce cómo son nuestras audiciones y cómo preparar a tu hijo para esta experiencia.',
+    embedUrl: 'https://www.youtube.com/embed/TU_VIDEO_ID_5',
+    // localSrc: '/media/videos/audiciones-que-esperar.mp4',
+    thumbnail: '/media/fotos/thumb-audiciones.jpg',
+    category: 'Educativo',
+  },
+  {
+    title: 'Ensayo general — Coro Infantil',
+    description: 'Un vistazo a nuestros ensayos y la dinámica de trabajo con los más pequeños.',
+    embedUrl: 'https://www.youtube.com/embed/TU_VIDEO_ID_6',
+    // localSrc: '/media/videos/ensayo-coro-infantil.mp4',
+    thumbnail: '/media/fotos/thumb-ensayo.jpg',
+    category: 'Detrás de escena',
+  },
+];
+
+// ── AUDIO / GRABACIONES ─────────────────────────────────────
+// Coloca tus .mp3 en: public/media/audio/
+const audios = [
+  {
+    title: 'Ave María — Coro Juvenil',
+    description: 'Grabación de estudio del Coro Juvenil interpretando Ave María de Franz Schubert.',
+    src: '/media/audio/ave-maria-coro-juvenil.mp3',
+    category: 'Clásico',
+  },
+  {
+    title: 'Cielito Lindo — Ensamble de Solistas',
+    description: 'Arreglo coral de la clásica canción mexicana por el Ensamble de Solistas.',
+    src: '/media/audio/cielito-lindo-solistas.mp3',
+    category: 'Mexicano',
+  },
+  {
+    title: 'Gloria — Misa Criolla',
+    description: 'Fragmento de la Misa Criolla de Ariel Ramírez, interpretada por el Coro Juvenil.',
+    src: '/media/audio/gloria-misa-criolla.mp3',
+    category: 'Sacro',
+  },
+];
+
+// ── FOTOS ───────────────────────────────────────────────────
+// Opción A: coloca en src/assets/images/galeria/ (Astro optimiza)
+// Opción B: coloca en public/media/fotos/ (se sirven tal cual)
+const fotos = [
+  { src: '/media/fotos/coro-concierto-01.jpg', alt: 'Coro en concierto' },
+  { src: '/media/fotos/bellas-artes-01.jpg', alt: 'Palacio de Bellas Artes' },
+  { src: '/media/fotos/instrumentos-01.jpg', alt: 'Instrumentos musicales' },
+  { src: '/media/fotos/piano-01.jpg', alt: 'Clase de piano' },
+  { src: '/media/fotos/teatro-01.jpg', alt: 'Teatro' },
+  { src: '/media/fotos/gira-01.jpg', alt: 'Gira internacional' },
+  { src: '/media/fotos/ensayo-01.jpg', alt: 'Ensayo del coro' },
+  { src: '/media/fotos/maestros-01.jpg', alt: 'Maestros de la SCM' },
+];
+
+const categories = ['Todos', ...new Set([...videos.map(v => v.category)])];
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Galería Audiovisual">
+    <Fragment slot="title">
+      Mira y escucha a la<br class="hidden xl:inline" />
+      <span class="text-accent dark:text-white"> Schola Cantorum</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Descubre el talento de nuestros alumnos a través de videos de conciertos, grabaciones de estudio,
+      material educativo y momentos inolvidables de nuestras giras.
+    </Fragment>
+  </Hero>
+
+  <!-- ═══════ SECCIÓN DE VIDEOS ═══════ -->
+  <section id="videos" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-primary font-semibold tracking-wide uppercase text-sm mb-2">Videos</p>
+        <h2 class="text-4xl font-bold dark:text-white mb-4">Nuestros videos</h2>
+        <p class="text-lg text-muted dark:text-slate-400 max-w-3xl mx-auto">
+          Conciertos, giras, ensayos y material educativo. Vive la experiencia de la Schola Cantorum.
+        </p>
+      </div>
+
+      <!-- Filtro por categoría -->
+      <div class="flex flex-wrap justify-center gap-2 mb-10" id="video-filters">
+        {categories.map((cat) => (
+          <button
+            data-filter={cat}
+            class:list={[
+              'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer',
+              cat === 'Todos'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-primary/10 hover:text-primary',
+            ]}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Grid de videos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="video-grid">
+        {videos.map((video) => (
+          <div class="video-card group rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-category={video.category}>
+            <div class="relative aspect-video bg-gray-900">
+              {video.embedUrl ? (
+                <iframe
+                  src={video.embedUrl}
+                  title={video.title}
+                  class="absolute inset-0 w-full h-full"
+                  style="border: 0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              ) : (
+                <video
+                  src={(video as any).localSrc}
+                  controls
+                  preload="metadata"
+                  poster={video.thumbnail}
+                  class="absolute inset-0 w-full h-full object-cover"
+                >
+                  Tu navegador no soporta video HTML5.
+                </video>
+              )}
+            </div>
+            <div class="p-5">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary mb-2">
+                {video.category}
+              </span>
+              <h3 class="text-lg font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">
+                {video.title}
+              </h3>
+              <p class="text-sm text-muted dark:text-slate-400">{video.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ SECCIÓN DE AUDIO / GRABACIONES ═══════ -->
+  <section id="audio" class="py-16 bg-blue-50 dark:bg-slate-800/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-primary font-semibold tracking-wide uppercase text-sm mb-2">Grabaciones</p>
+        <h2 class="text-4xl font-bold dark:text-white mb-4">Escucha nuestras voces</h2>
+        <p class="text-lg text-muted dark:text-slate-400 max-w-3xl mx-auto">
+          Muestras de nuestras grabaciones de estudio. Repertorio clásico, sacro y mexicano.
+          <br /><em class="text-sm">Coloca tus archivos MP3 en <code>public/media/audio/</code></em>
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {audios.map((audio) => (
+          <div class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-md hover:shadow-lg transition-all duration-300 group hover:-translate-y-0.5">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+              </div>
+              <div class="flex-grow min-w-0">
+                <div class="flex items-center gap-2">
+                  <h3 class="font-bold dark:text-white truncate">{audio.title}</h3>
+                  <span class="flex-shrink-0 inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                    {audio.category}
+                  </span>
+                </div>
+                <p class="text-sm text-muted dark:text-slate-400 truncate">{audio.description}</p>
+              </div>
+            </div>
+            <!-- Reproductor HTML5 real -->
+            <audio controls preload="metadata" class="w-full h-10 rounded-lg">
+              <source src={audio.src} type="audio/mpeg" />
+              Tu navegador no soporta audio HTML5.
+            </audio>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <p class="text-sm text-muted dark:text-slate-400 italic">
+          🎵 Los reproductores se activarán cuando coloques tus archivos MP3 en <code>public/media/audio/</code>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ SECCIÓN DE FOTOS ═══════ -->
+  <section id="fotos" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-primary font-semibold tracking-wide uppercase text-sm mb-2">Galería de Fotos</p>
+        <h2 class="text-4xl font-bold dark:text-white mb-4">Momentos memorables</h2>
+        <p class="text-lg text-muted dark:text-slate-400 max-w-3xl mx-auto">
+          Instantáneas de nuestros conciertos, giras, ensayos y la vida cotidiana de la Schola Cantorum.
+          <br /><em class="text-sm">Coloca tus fotos en <code>public/media/fotos/</code></em>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {fotos.map((img) => (
+          <div class="group relative aspect-square rounded-xl overflow-hidden cursor-pointer bg-gray-200 dark:bg-slate-700">
+            <img
+              src={img.src}
+              alt={img.alt}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <!-- Placeholder cuando la imagen aún no existe -->
+            <div class="absolute inset-0 hidden items-center justify-center flex-col gap-2 text-gray-400 dark:text-gray-500 p-4">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
+              </svg>
+              <span class="text-xs text-center">{img.alt}</span>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-white text-sm font-medium">{img.alt}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: '¡Inscribe a tu hijo!', href: '/inscripciones', icon: 'tabler:music' },
+    ]}
+  >
+    <Fragment slot="title">¿Te gustó lo que viste?</Fragment>
+    <Fragment slot="subtitle">
+      Tu hijo puede ser parte de todo esto. Inscríbelo en la Schola Cantorum de México
+      y dale la oportunidad de vivir la música en los mejores escenarios.
+    </Fragment>
+  </CallToAction>
+</Layout>
+
+<script>
+  // Filtro de videos por categoría
+  const filterButtons = document.querySelectorAll('#video-filters button');
+  const videoCards = document.querySelectorAll('.video-card');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // Actualizar estilos de botones
+      filterButtons.forEach((b) => {
+        b.classList.remove('bg-primary', 'text-white');
+        b.classList.add('bg-gray-100', 'dark:bg-slate-800', 'text-gray-600', 'dark:text-gray-300');
+      });
+      btn.classList.remove('bg-gray-100', 'dark:bg-slate-800', 'text-gray-600', 'dark:text-gray-300');
+      btn.classList.add('bg-primary', 'text-white');
+
+      // Filtrar videos con animación
+      videoCards.forEach((card) => {
+        const cardEl = card as HTMLElement;
+        if (filter === 'Todos' || cardEl.dataset.category === filter) {
+          cardEl.style.display = '';
+          cardEl.classList.add('animate-fade');
+        } else {
+          cardEl.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

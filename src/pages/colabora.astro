@@ -1,0 +1,97 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Colabora',
+  description: 'Apoya la formación musical de niños con talento. Dona, patrocina o sé voluntario en la Schola Cantorum de México.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Apoya el Talento"
+    image={{ src: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=2070&q=80', alt: 'Manos unidas en apoyo' }}
+  >
+    <Fragment slot="title">
+      Colabora con la<br class="hidden xl:inline" />
+      <span class="text-accent dark:text-white"> Schola Cantorum</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Tu apoyo transforma vidas. Ayúdanos a brindar educación musical de calidad a niños con talento
+      que de otro modo no tendrían acceso a esta oportunidad.
+    </Fragment>
+  </Hero>
+
+  <Features
+    tagline="Formas de apoyar"
+    title="¿Cómo puedes colaborar?"
+    subtitle="Existen múltiples formas de impulsar el talento musical infantil en la Ciudad de México."
+    items={[
+      {
+        title: 'Donación económica',
+        description: 'Tu donativo apoya directamente el programa de becas, la adquisición de materiales didácticos y la organización de conciertos.',
+        icon: 'tabler:heart-handshake',
+      },
+      {
+        title: 'Patrocinio corporativo',
+        description: 'Tu empresa puede patrocinar un programa, un concierto o una gira. Ofrecemos reconocimiento y visibilidad para tu marca.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Voluntariado',
+        description: 'Comparte tu talento y tu tiempo. Necesitamos apoyo en logística, comunicación, diseño y producción de eventos.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Donación en especie',
+        description: 'Instrumentos musicales, uniformes, materiales de papelería, equipo de audio — todo suma para nuestros programas.',
+        icon: 'tabler:gift',
+      },
+      {
+        title: 'Difusión',
+        description: 'Comparte nuestra labor en tus redes sociales y recomiéndanos con familias que buscan formación musical para sus hijos.',
+        icon: 'tabler:share',
+      },
+      {
+        title: 'Espacios y foros',
+        description: '¿Tienes un espacio que podamos usar para ensayos o conciertos? Tu apoyo logístico es invaluable.',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-bold dark:text-white mb-6">El impacto de tu donativo</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+          <div class="text-4xl font-bold text-primary mb-2">$500</div>
+          <p class="text-gray-600 dark:text-gray-300">Cubre el material didáctico de un alumno por un mes</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-primary/30">
+          <div class="text-4xl font-bold text-primary mb-2">$2,000</div>
+          <p class="text-gray-600 dark:text-gray-300">Beca parcial mensual para un alumno con talento</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+          <div class="text-4xl font-bold text-primary mb-2">$5,000</div>
+          <p class="text-gray-600 dark:text-gray-300">Beca completa mensual para un alumno destacado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: 'Contáctanos para donar', href: '/contacto', icon: 'tabler:heart' },
+    ]}
+  >
+    <Fragment slot="title">Cada peso cuenta</Fragment>
+    <Fragment slot="subtitle">
+      Tu generosidad permite que un niño con talento descubra su vocación artística y transforme su futuro.
+      <br class="hidden md:inline" />¡Únete a nuestra comunidad de patrocinadores!
+    </Fragment>
+  </CallToAction>
+</Layout>

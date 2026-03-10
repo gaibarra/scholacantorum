@@ -1,0 +1,167 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Contacto',
+  description: 'Ponte en contacto con la Schola Cantorum de México. Ubicación, teléfonos y formulario de contacto.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Contáctanos">
+    <Fragment slot="title">
+      Estamos para<br class="hidden xl:inline" />
+      <span class="text-accent dark:text-white"> ayudarte</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      ¿Tienes preguntas sobre nuestros programas, inscripciones o eventos? Escríbenos y te responderemos a la brevedad.
+    </Fragment>
+  </Hero>
+
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Formulario de contacto -->
+        <div>
+          <h2 class="text-3xl font-bold dark:text-white mb-6">Envíanos un mensaje</h2>
+          <form id="contact-form" class="space-y-5">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nombre completo *</label>
+              <input type="text" name="name" required
+                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Correo electrónico *</label>
+              <input type="email" name="email" required
+                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Asunto</label>
+              <select name="subject"
+                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition">
+                <option value="inscripciones">Inscripciones</option>
+                <option value="informacion">Información general</option>
+                <option value="donaciones">Donaciones / Patrocinios</option>
+                <option value="contrataciones">Contrataciones para eventos</option>
+                <option value="prensa">Prensa y medios</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mensaje *</label>
+              <textarea name="message" rows="5" required
+                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition"
+                placeholder="Escribe tu mensaje aquí..."></textarea>
+            </div>
+            <button type="submit"
+              class="btn-primary px-8 py-3 rounded-full font-semibold bg-primary text-white hover:bg-secondary transition-all duration-300">
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+
+        <!-- Información de contacto -->
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl font-bold dark:text-white mb-6">Información de contacto</h2>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span class="text-primary text-lg">📍</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold dark:text-white">Ubicación</h3>
+                  <p class="text-muted dark:text-slate-400">Monte Albán 594, Letrán Valle, Ciudad de México</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span class="text-primary text-lg">📧</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold dark:text-white">Correo electrónico</h3>
+                  <p class="text-muted dark:text-slate-400">info@scholacantorum.org.mx</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span class="text-primary text-lg">📱</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold dark:text-white">WhatsApp</h3>
+                  <p class="text-muted dark:text-slate-400">+52 55 7195 5571</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span class="text-primary text-lg">🕐</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold dark:text-white">Horario de atención</h3>
+                  <p class="text-muted dark:text-slate-400">Lunes a viernes: 9:00 - 18:00<br />Sábados: 9:00 - 14:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+            <h3 class="text-xl font-bold dark:text-white mb-3">Síguenos en redes sociales</h3>
+            <p class="text-muted dark:text-slate-400 mb-4">Mantente al día con nuestras actividades, conciertos y convocatorias.</p>
+            <div class="flex gap-4">
+              <a href="#" class="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition text-primary">
+                <span class="text-xl">📘</span>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition text-primary">
+                <span class="text-xl">📸</span>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition text-primary">
+                <span class="text-xl">▶️</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: 'Ver inscripciones', href: '/inscripciones', icon: 'tabler:music' },
+    ]}
+  >
+    <Fragment slot="title">¿Listo para inscribir a tu hijo?</Fragment>
+    <Fragment slot="subtitle">
+      Si ya decidiste que tu hijo sea parte de la Schola Cantorum, ve directamente al formulario de inscripción.
+    </Fragment>
+  </CallToAction>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form as HTMLFormElement);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          alert('¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.');
+          (form as HTMLFormElement).reset();
+        } else {
+          alert('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
+        }
+      } catch (error) {
+        alert('Error de conexión. Por favor verifica tu conexión a internet e intenta de nuevo.');
+      }
+    });
+  }
+</script>

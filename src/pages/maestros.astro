@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Maestros',
+  description: 'Conoce a los maestros de la Schola Cantorum de México. Músicos profesionales dedicados a la formación vocal infantil.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Nuestro Equipo">
+    <Fragment slot="title">
+      Maestros de<br class="hidden xl:inline" />
+      <span class="text-accent dark:text-white"> excelencia</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Nuestro equipo docente está conformado por músicos profesionales con amplia experiencia
+      en pedagogía musical infantil y dirección coral.
+    </Fragment>
+  </Hero>
+
+  <Features2
+    tagline="Equipo directivo"
+    title="Liderazgo artístico y pedagógico"
+    items={[
+      {
+        title: 'Mtro. Alfredo Mendoza',
+        description: 'Director General y Fundador. Director coral con más de 25 años de trayectoria. Ha dirigido coros en el Palacio de Bellas Artes, colaborado con la Orquesta Sinfónica Nacional y llevado a la Schola Cantorum a escenarios internacionales en más de 15 países.',
+        icon: 'tabler:user-star',
+      },
+      {
+        title: 'Dirección Coral',
+        description: 'Nuestros directores corales cuentan con formación en las mejores escuelas de música del país y experiencia internacional en festivales y competencias corales.',
+        icon: 'tabler:wand',
+      },
+      {
+        title: 'Técnica Vocal',
+        description: 'Especialistas en pedagogía vocal infantil que cuidan la salud y el desarrollo adecuado de la voz de cada alumno, adaptando las técnicas a su edad y madurez.',
+        icon: 'tabler:microphone-2',
+      },
+      {
+        title: 'Teoría Musical',
+        description: 'Profesores de solfeo y teoría que hacen de la lectura musical una experiencia accesible y divertida para los niños.',
+        icon: 'tabler:music',
+      },
+      {
+        title: 'Piano y Acompañamiento',
+        description: 'Pianistas acompañantes con experiencia en música coral y de cámara, que enriquecen los ensayos y conciertos con interpretaciones de alta calidad.',
+        icon: 'tabler:piano',
+      },
+      {
+        title: 'Desarrollo Artístico',
+        description: 'Equipo de apoyo en escenografía, vestuario y producción que prepara a los niños para presentaciones profesionales en los mejores foros.',
+        icon: 'tabler:palette',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: 'Conoce nuestros programas', href: '/programas', icon: 'tabler:notes' },
+    ]}
+  >
+    <Fragment slot="title">Aprende de los mejores</Fragment>
+    <Fragment slot="subtitle">
+      Nuestros maestros están comprometidos con el desarrollo integral de cada alumno.
+      Descubre los programas que tenemos para tu hijo.
+    </Fragment>
+  </CallToAction>
+</Layout>
