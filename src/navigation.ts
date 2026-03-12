@@ -36,6 +36,10 @@ export const headerData = {
       href: getPermalink('/inscripciones'),
     },
     {
+      text: 'Bibliografía',
+      href: getPermalink('/#bibliografia'),
+    },
+    {
       text: 'Noticias',
       href: getBlogPermalink(),
     },
