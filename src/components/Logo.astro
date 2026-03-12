@@ -2,15 +2,15 @@
 import { SITE } from 'astrowind:config';
 ---
 
-<span class="self-center flex items-center gap-2 ml-2 mr-4 rtl:ml-0 rtl:mr-2">
+<span class="self-center flex items-center gap-2 md:gap-3 ml-1 mr-2 rtl:ml-0 rtl:mr-1">
   <img
     src="/logo-scm.jpg"
     alt="Logo Schola Cantorum de México"
-    class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30 shadow-md shadow-primary/10"
+    class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover shrink-0 ring-2 ring-primary/30 shadow-md shadow-primary/10"
     width="48"
     height="48"
   />
-  <span class="text-2xl md:text-xl font-heading font-bold text-gray-900 whitespace-nowrap dark:text-white tracking-tight">
+  <span class="text-lg sm:text-xl font-heading font-bold text-gray-900 dark:text-white tracking-tight leading-tight">
     {SITE?.name}
   </span>
 </span>
